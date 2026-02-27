@@ -99,7 +99,10 @@
     .feature-card p{font-size:14px;color:var(--mid);line-height:1.6;}
 
     /* ── AUTH ── */
-    #authSection{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(168,197,176,.25) 0%,transparent 70%),var(--cream);}
+    /* authSection should be hidden by routing logic; avoid forcing display here */
+    #authSection{min-height:100vh; /* display:flex removed */ align-items:center;justify-content:center;padding:100px 24px 60px;background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(168,197,176,.25) 0%,transparent 70%),var(--cream);}
+    /* when this page is active we want the flex layout back */
+    #authSection.active { display:flex; }
     .auth-container{display:flex;max-width:880px;width:100%;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 20px 80px rgba(78,122,94,.15);}
     .auth-left{flex:1;background:linear-gradient(145deg,var(--sage-dark),var(--sage));padding:56px 44px;display:flex;flex-direction:column;justify-content:center;color:#fff;position:relative;overflow:hidden;}
     .auth-left::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.07);}
@@ -505,9 +508,20 @@
 <script>
 /* ── Page routing ── */
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // hide every page element and reset its inline display so CSS specificity can't keep it visible
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+
   const el = document.getElementById(id);
-  if (el) { el.classList.add('active'); window.scrollTo(0,0); }
+  if (el) {
+    // authSection needs flex layout when visible, others are block
+    el.style.display = (id === 'authSection' ? 'flex' : 'block');
+    el.classList.add('active');
+    window.scrollTo(0,0);
+  }
+
   /* Hide login btn on all pages except home + auth */
   const loginLi = document.getElementById('loginNavBtn');
   if (loginLi) {
