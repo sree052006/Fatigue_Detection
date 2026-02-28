@@ -105,4 +105,27 @@ FatigueGuard provides several "solutions" (interventions) based on the detected 
 **Data Visualization:** Uses `Chart.js` to display a "Focus Breakdown" donut chart, visually representing the user's cognitive state.
 
   specific link : https://sree052006.github.io/Fatigue_Detection/
+
+  Demo video:https://drive.google.com/file/d/1-DPgtDlusIAlf5rlTZRKvHLJp-xcFKWO/view?usp=drivesdk
+
+  Team Members : Persis Mariyam John , Sreelakshmi M
+  Contribution Summary :
+
+Member 1: UI/UX & Frontend Developer**
+
+* **Interface Design:** Created the responsive layout, sidebar navigation, and glassmorphism styling using CSS.
+* **Visual Feedback:** Integrated **Chart.js** for the "Focus Breakdown" donut charts and designed the fatigue meter.
+* **Wellness Features:** Developed the "Guided Breathing" module, including the CSS-based expansion animations.
+* **Frontend Routing:** Built the `showPage()` system to handle seamless transitions between Home, Dashboard, and Assessment views.
+
+Member 2: Logic & Backend Engineer**
+
+* **Firebase Integration:** Implemented the Authentication (Login/Signup) and Firestore database logic to save fatigue logs.
+* **Algorithm Development:** Wrote the `calculateScore()` function to analyze typing speed, sleep hours, and reaction times.
+* **Cognitive Game Design:** Programmed the JavaScript logic for the **Memory Match** and **Color Challenge (Stroop)** games.
+* **Data Management:** Handled asynchronous API calls, user session persistence, and real-time dashboard updates.
+
+
+
+
   
