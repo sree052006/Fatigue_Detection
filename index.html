@@ -217,6 +217,292 @@
     .color-options{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:20px 0;}
     .color-btn{width:80px;height:80px;border-radius:18px;border:none;cursor:pointer;font-weight:800;font-size:13px;color:#fff;transition:all .2s;text-shadow:0 1px 4px rgba(0,0,0,.3);}
     .color-btn:hover{transform:scale(1.1);}
+
+    /* ════════════════════════════════════════════════════════════ */
+    /* 📱 HAMBURGER MENU                                             */
+    /* ════════════════════════════════════════════════════════════ */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--text);
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .hamburger:hover {
+      background: rgba(122, 171, 138, 0.1);
+      transform: scale(1.05);
+    }
+    .hamburger:focus {
+      outline: 2px solid var(--sage);
+      outline-offset: 2px;
+    }
+    
+    .nav-links {
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links.open {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      padding: 16px;
+      gap: 0;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      z-index: 1000;
+      max-height: calc(100vh - 70px);
+      overflow-y: auto;
+      animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .nav-links.open li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(122, 171, 138, 0.1);
+    }
+    
+    .nav-links.open li:last-child {
+      border-bottom: none;
+    }
+    
+    .nav-links.open li a {
+      display: block;
+      padding: 12px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-links.open li a:hover {
+      background: rgba(122, 171, 138, 0.15);
+      color: var(--sage-dark);
+      padding-left: 20px;
+    }
+
+    /* ════════════════════════════════════════════════════════════ */
+    /* 📱 RESPONSIVE DESIGN - TABLET & MOBILE                       */
+    /* ════════════════════════════════════════════════════════════ */
+
+    /* TABLET BREAKPOINT: 1024px and below */
+    @media (max-width: 1024px) {
+      nav { padding: 10px 24px; }
+      .nav-links a { font-size: 13px; padding: 6px 12px; }
+      
+      .hero-content { padding: 40px 24px; gap: 40px; }
+      .mascot-wrap { width: 300px; height: 300px; }
+      .mascot-img { width: 250px; height: 250px; }
+      
+      .features { grid-template-columns: repeat(2, 1fr); padding: 0 24px 60px; }
+      .dash-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .games-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      
+      .inner-page { padding: 100px 24px 60px; }
+      .card { padding: 30px; }
+      .page-header h2 { font-size: 28px; }
+      
+      .auth-container { flex-direction: column; border-radius: 20px; }
+      .auth-left, .auth-right { padding: 40px 24px; flex: none; width: 100%; }
+      .auth-left h2 { font-size: 22px; }
+      
+      .games-section { padding: 0 24px 60px; }
+      .games-section h2 { font-size: 26px; }
+      
+      .donut-wrap { width: 180px; }
+    }
+
+    /* MOBILE BREAKPOINT: 768px and below */
+    @media (max-width: 768px) {
+      nav { 
+        padding: 8px 16px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        position: relative; 
+      }
+      .logo-name { font-size: 16px; }
+      .logo-tagline { display: none; }
+      .hamburger { display: block; }
+      .nav-links { 
+        position: static; 
+        flex-direction: row; 
+        gap: 2px;
+        display: none;
+      }
+      .nav-links:not(.open) li {
+        display: none;
+      }
+      .nav-links.open { 
+        display: flex;
+        position: fixed; 
+        top: 70px; 
+        left: 0; 
+        right: 0; 
+        background: #fff; 
+        flex-direction: column; 
+        padding: 16px;
+        padding-top: 8px;
+        gap: 0; 
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); 
+        z-index: 1000; 
+        max-height: calc(100vh - 70px); 
+        overflow-y: auto;
+        width: 100%;
+      }
+      .nav-links.open li { 
+        padding: 12px 0; 
+        border-bottom: 1px solid rgba(122, 171, 138, 0.1);
+        display: block;
+      }
+      .nav-links.open li:last-child { 
+        border-bottom: none; 
+      }
+      .nav-links.open li a { 
+        display: block; 
+        padding: 12px 16px;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      .nav-links.open li a:hover {
+        background: rgba(122, 171, 138, 0.15);
+        color: var(--sage-dark);
+      }
+      .nav-links a { font-size: 11px; padding: 4px 8px; }
+      #logoutBtn { padding: 6px 12px; font-size: 12px; }
+      
+      .hero-content { flex-direction: column; padding: 30px 16px; gap: 20px; text-align: center; }
+      .hero-illustration { width: 100%; }
+      .mascot-wrap { width: 240px; height: 240px; }
+      .mascot-img { width: 200px; height: 200px; }
+      
+      .hero-title { font-size: 32px; }
+      .hero-subtitle { font-size: 15px; max-width: 100%; }
+      .hero-btns { justify-content: center; }
+      .btn-primary, .btn-secondary { font-size: 13px; padding: 12px 24px; }
+      
+      .features { grid-template-columns: 1fr; padding: 0 16px 40px; }
+      .feature-card { padding: 20px; }
+      .feature-card h3 { font-size: 14px; }
+      .feature-card p { font-size: 12px; }
+      
+      .inner-page { padding: 90px 16px 40px; }
+      .page-header h2 { font-size: 24px; }
+      .page-header p { font-size: 13px; }
+      .card { padding: 20px; }
+      
+      textarea { height: 100px; font-size: 14px; padding: 12px; }
+      
+      .dash-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
+      .dash-metric { padding: 24px 16px; }
+      .dash-metric .metric-label { font-size: 11px; }
+      .dash-metric .metric-value { font-size: 32px; }
+      .dash-metric input[type=number] { font-size: 24px; padding: 10px 12px; }
+      .calc-btn { padding: 14px 40px; font-size: 14px; }
+      
+      .auth-container { width: 100%; }
+      .auth-left { padding: 30px 20px; }
+      .auth-right { padding: 30px 20px; }
+      .auth-left h2 { font-size: 20px; margin-bottom: 10px; }
+      .auth-right h3 { font-size: 18px; }
+      .form-group label { font-size: 11px; }
+      .form-group input { font-size: 14px; padding: 11px 14px; }
+      .tab-btn { font-size: 12px; padding: 8px; }
+      
+      .games-section { padding: 0 16px 40px; }
+      .games-section h2 { font-size: 22px; }
+      .games-section > p { font-size: 13px; margin-bottom: 24px; }
+      .games-grid { grid-template-columns: 1fr; gap: 12px; }
+      .game-card { padding: 20px 16px; }
+      .game-icon { font-size: 40px; margin-bottom: 12px; }
+      .game-card h3 { font-size: 16px; margin-bottom: 6px; }
+      .game-card p { font-size: 12px; margin-bottom: 16px; }
+      
+      .mem-grid { max-width: 280px; gap: 10px; }
+      .mem-card { width: 65px; height: 65px; font-size: 22px; }
+      
+      .result-cols { flex-direction: column; gap: 20px; }
+      .donut-wrap { width: 160px; }
+      .donut-center .dc-num { font-size: 22px; }
+      
+      .blob-1 { width: 300px; height: 300px; top: -50px; right: -50px; }
+      .blob-2 { width: 200px; height: 200px; bottom: 20px; left: -30px; }
+      
+      .score-circle { width: 120px; height: 120px; }
+      .score-circle .sc-num { font-size: 40px; }
+      .score-circle .sc-lbl { font-size: 10px; }
+      
+      .suggestion-card { padding: 24px 16px; margin: 16px 0; }
+      .suggestion-card .sug-icon { font-size: 40px; }
+      .suggestion-card .sug-risk { font-size: 18px; }
+      .suggestion-card .sug-msg { font-size: 14px; }
+      .sug-tips { gap: 10px; }
+      .sug-tip { font-size: 12px; padding: 8px 14px; }
+      
+      #authSection { padding: 80px 16px 40px; }
+      .breathing-circle { width: 150px; height: 150px; font-size: 14px; }
+      .color-btn { width: 70px; height: 70px; font-size: 11px; }
+    }
+
+    /* SMALL MOBILE: 480px and below */
+    @media (max-width: 480px) {
+      nav { padding: 8px 12px; }
+      .logo { gap: 6px; }
+      .logo-img { width: 40px; height: 40px; }
+      .logo-name { font-size: 14px; }
+      .nav-links { gap: 1px; }
+      .nav-links a { font-size: 10px; padding: 4px 6px; }
+      
+      .hero-content { padding: 20px 12px; }
+      .hero-title { font-size: 26px; line-height: 1.2; }
+      .hero-subtitle { font-size: 14px; margin-bottom: 24px; }
+      .btn-primary, .btn-secondary { padding: 10px 20px; font-size: 12px; }
+      
+      .page-header h2 { font-size: 20px; }
+      .card { padding: 16px; }
+      
+      .dash-metric { padding: 16px 12px; }
+      .dash-metric .metric-value { font-size: 28px; }
+      
+      .auth-left { padding: 20px 16px; }
+      .auth-right { padding: 20px 16px; }
+      .auth-left h2 { font-size: 18px; }
+      .auth-right h3 { font-size: 16px; }
+      
+      .games-section { padding: 0 12px 30px; }
+      .games-section h2 { font-size: 20px; margin-bottom: 16px; }
+      
+      .mem-card { width: 55px; height: 55px; font-size: 18px; }
+      .breathing-circle { width: 120px; height: 120px; font-size: 12px; }
+      .color-btn { width: 60px; height: 60px; font-size: 10px; }
+      
+      .score-circle { width: 100px; height: 100px; }
+      .score-circle .sc-num { font-size: 32px; }
+      
+      .suggestion-card .sug-icon { font-size: 32px; }
+      .suggestion-card .sug-risk { font-size: 16px; }
+      .sug-tip { font-size: 11px; padding: 6px 12px; }
+    }
   </style>
 </head>
 <body>
@@ -230,12 +516,13 @@
       <span class="logo-tagline">Stay Sharp. Stay Strong.</span>
     </div>
   </div>
-  <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')">Home</a></li>
-    <li><a href="#" onclick="showPage('typing')">Assessment</a></li>
-    <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
-    <li><a href="#" onclick="showPage('cognitive')">Cognitive Test</a></li>
-    <li id="loginNavBtn"><a href="#" onclick="showPage('authSection')" class="nav-cta">Login</a></li>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">☰</button>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="#" onclick="showPage('home'); closeMobileMenu()">Home</a></li>
+    <li><a href="#" onclick="showPage('typing'); closeMobileMenu()">Assessment</a></li>
+    <li><a href="#" onclick="showPage('dashboard'); closeMobileMenu()">Dashboard</a></li>
+    <li><a href="#" onclick="showPage('cognitive'); closeMobileMenu()">Cognitive Test</a></li>
+    <li id="loginNavBtn"><a href="#" onclick="showPage('authSection'); closeMobileMenu()" class="nav-cta">Login</a></li>
     <button id="logoutBtn" onclick="logout()">Logout</button>
   </ul>
 </nav>
@@ -548,6 +835,17 @@ function switchTab(tab) {
   document.getElementById('loginForm').style.display   = tab==='login' ? 'block' : 'none';
   document.getElementById('signupForm').style.display  = tab==='signup' ? 'block' : 'none';
   document.querySelectorAll('.tab-btn')[tab==='login' ? 0 : 1].classList.add('active');
+}
+
+/* ── Mobile Menu Toggle ── */
+function toggleMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('open');
+}
+
+function closeMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.remove('open');
 }
 
 /* ── Firebase Auth ── */

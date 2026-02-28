@@ -7,6 +7,39 @@ let startTime = Date.now();
 let activeTime = 0;
 let lastActive = Date.now();
 
+/* ══════════════════════════════════════════════════════════════ */
+/* 📱 MOBILE MENU FUNCTIONALITY                                   */
+/* ══════════════════════════════════════════════════════════════ */
+function toggleMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('open');
+  
+  // Prevent body scroll when menu is open
+  if (navMenu.classList.contains('open')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+}
+
+function closeMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.remove('open');
+  document.body.style.overflow = 'auto';
+}
+
+// Close menu when clicking outside of it
+document.addEventListener('click', function(event) {
+  const navMenu = document.getElementById('navMenu');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  
+  if (navMenu && hamburgerBtn && !navMenu.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+    closeMobileMenu();
+  }
+});
+
+/* ══════════════════════════════════════════════════════════════ */
+
 function showPage(pageId) {
   // 1. Hide every element with the class 'page'
   const pages = document.querySelectorAll('.page');
