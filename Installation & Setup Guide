@@ -1,0 +1,25 @@
+To set up **FatigueGuard** quickly, follow these steps:
+
+### **1. File Preparation**
+
+* Create a file named `index.html`.
+* Copy the code from `fatigue.txt` and paste it into `index.html`.
+
+### **2. Backend Configuration (Firebase)**
+
+The app requires Firebase for login and data features.
+
+* Go to the [Firebase Console](https://console.firebase.google.com/).
+* Create a project and enable **Email/Password Authentication** and **Firestore Database**.
+* In the `index.html` file, find the `const firebaseConfig` section and ensure the `apiKey` and `authDomain` match your Firebase project settings.
+
+### **3. Running the App**
+
+* **Locally:** Open `index.html` in any web browser.
+* **Deployment:** Upload the `index.html` file to **Firebase Hosting** or **GitHub Pages**.
+
+### **4. Using the App**
+
+1. **Sign Up/Login:** Create an account via the "Login" tab.
+2. **Take Assessment:** Go to "Get Started," enter your sleep hours, and complete the typing/reaction tests.
+3. **View Results:** Check the "Dashboard" for your fatigue score and personalized wellness advice.
